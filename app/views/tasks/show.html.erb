@@ -1,0 +1,28 @@
+<h1><%= @task.title %></h1>
+
+<div class="task">
+  <a class="btn btn-outline-secondary edit" href=<%= "#{@task.id}/edit" %>>
+    <i class="fa fa-pencil"></i><strong>Edit task</strong>
+  </a>
+
+
+  <div class="details">
+    <%= @task.details %>
+  </div>
+
+  <div class="info">
+    <% if @task.completed %>
+      <%= check_box_tag @task.title, @task.title, ( @task.completed ) %>
+      <span>The task is completed</span>
+    <% else %>
+      <%= check_box_tag @task.title, @task.title %>
+      <span>The task is not completed yet</span>
+    <% end %>
+  </div>
+</div>
+
+<hr>
+
+<i class="fa fa-undo" aria-hidden="true">
+  <%= link_to "Back to the list", tasks_path, { :class => "link" } %>
+</i>
